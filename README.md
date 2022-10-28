@@ -90,3 +90,34 @@ Usage of sync_state:
   -info
         About check
 ```
+## Examples
+### sync_state
+```
+$check-godevman-multi -H 1.2.3.4 -V 3 -u user -A passpass -X secret12 sync_state
+SYNC: OK - Fsync Mode: locked; Fsync Qa: PRC; PTP Mode: phaseAligned; PTP GM Class: prtcLock(6); GrandMaster: 0xBE:EF:1:FF:FE:0:2:30 
+
+Configured frequency sync sources:
+ 1(Internal): SEC
+ 2(GigabitEthernet0/3/6): PRC
+ 3(GigabitEthernet0/2/5): DNU
+Freq sync (ok)
+Configured phase sync sources:
+ 1(SRC-DESCR1): slave
+ 2(SRC-DESCR2): master
+Hops to GM: 1
+```
+### power_gen common
+```
+$check-godevman-multi -H 1.2.3.4 -u community power_gen -t common
+GEN: OK - Mode: Auto; Breaker: MainsOper; Engine: Ready 
+```
+### power_gen electrical
+```
+$check-godevman-multi -H 1.2.3.4 -u community power_gen -t electrical
+GEN: OK - Gen Current L1: 0A; Gen Current L2: 0A; Gen Current L3: 0A; Gen Frequency: 0.0Hz; Gen Power: 0kW; Gen Voltage L1: 0V; Gen Voltage L2: 0V; Gen Voltage L3: 0V; Mains Voltage L1: 236V; Mains Voltage L2: 236V; Mains Voltage L3: 242V |'Gen Current L1'=0;24;27;0; 'Gen Current L2'=0;24;27;0; 'Gen Current L3'=0;24;27;0; 'Gen Frequency'=0;48:52;46:54;0; 'Gen Power'=0;13;15;0; 'Gen Voltage L1'=0;215:245;215:245;0; 'Gen Voltage L2'=0;215:245;215:245;0; 'Gen Voltage L3'=0;215:245;215:245;0; 'Mains Voltage L1'=236;215:245;215:245;0; 'Mains Voltage L2'=236;215:245;215:245;0; 'Mains Voltage L3'=242;215:245;215:245;0;
+```
+### power_gen engine
+```
+$check-godevman-multi -H 1.2.3.4 -u community power_gen -t engine
+GEN: OK - Battery Voltage: 13.6V; Coolant Temperature: 52°C; Fuel Consumption: 0.0l; Fuel level: 73%; Running Hours: 61.7h; Number of Starts: 16 |'Battery Voltage'=136;130:145;120:155;0; 'Coolant Temperature'=52;98;104;0; 'Fuel Consumption'=0;;;0; 'Fuel level'=73%;20:100;10:100;0; 'Running Hours'=617;;;0; 'Number of Starts'=16;;;0;
+```
