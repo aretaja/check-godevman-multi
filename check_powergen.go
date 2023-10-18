@@ -166,7 +166,7 @@ func (c *checkPowerGen) common(check *icingahelper.IcingaCheck, i godevman.GenIn
 
 	if i.BreakerState.IsSet {
 		val := i.BreakerState.Value
-		if val != "MainsOper" {
+		if val != "MainsOper" && val != "BrksOff" {
 			check.SetRetVal(2)
 		}
 		check.AddMsg(check.RetVal(), fmt.Sprintf("Breaker: %s", val), "")
@@ -219,6 +219,11 @@ func (c *checkPowerGen) electrical(check *icingahelper.IcingaCheck, i godevman.G
 
 	for _, k := range keys {
 		switch data[k].Unit {
+		// Only il-14 has mains voltage
+		case "NotSupported":
+			if !data[k].IsSet {
+				check.AddMsg(0, fmt.Sprintf("%s: NotSupported", k), "")
+			}
 		case "V":
 			if data[k].IsSet {
 				val := data[k].Value
