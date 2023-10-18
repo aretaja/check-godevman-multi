@@ -1,4 +1,4 @@
-// Copyright 2022 by Marko Punnar <marko[AT]aretaja.org>
+// Copyright 2022-2023 by Marko Punnar <marko[AT]aretaja.org>
 // Use of this source code is governed by a Apache License 2.0 that can be found in the LICENSE file.
 
 // check-godevman-multi is multipurpose plugin for Icinga2 compatible systems.
@@ -18,7 +18,7 @@ import (
 )
 
 // Version of release
-const Version = "0.0.1"
+const Version = "0.0.2"
 
 // available checks
 var checksInfo = map[string][]string{
